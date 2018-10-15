@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js复制文字到鼠标右键</title>
+</head>
+<body>
+	<div>
+		<button onclick="copy('asdf')">复制</button>
+	</div>
+	<script>
+		function copy() {
+			var oInput = document.createElement('input')
+			oInput.value = '你想要复制的内容...balabala。。。'
+			document.body.append(oInput)
+			oInput.select()
+			let bool = document.execCommand('Copy')
+			if (bool) {
+				console.log('复制成功')
+			} else {
+				console.log('复制失败')
+			}
+			oInput.style.display = 'none'
+		}
+	</script>
+</body>
+</html>
